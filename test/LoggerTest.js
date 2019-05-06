@@ -1,5 +1,8 @@
-describe("url", function() {	
+import LoggerFactory from "../src/LoggerFactory";
+
+describe("url", function() {
 	it("document", function(){		
-		expect(true).toBe(true);
+		let logger = LoggerFactory.newLogger("test.logger");
+		expect(logger).defined();
 	});
 });
