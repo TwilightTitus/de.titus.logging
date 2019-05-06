@@ -8,9 +8,9 @@ let loadLazyCounter = 0;
 
 const getConfig = function() {
 	if (!configs)
-		this.updateConfigs();
+		updateConfigs();
 
-	return this.configs;
+	return configs;
 };
 
 const setConfig = function(aConfig) {
@@ -24,7 +24,7 @@ const updateConfigs = function(aConfig) {
 	if (configs)
 		configs = {};
 
-	let element = document.selectorQuery("[logging-properties]");
+	let element = document.querySelector("[logging-properties]");
 	if (element) {
 		let config = element.attr("logging-properties");
 		loadConfig(JSON.parse(config));
@@ -33,8 +33,8 @@ const updateConfigs = function(aConfig) {
 };
 
 const doLoadLazy = function() {
-	if (this.loadLazyCounter < 10){
-		this.loadLazyCounter++;
+	if (loadLazyCounter < 10){
+		loadLazyCounter++;
 		setTimeout(loadConfig, 1);
 	}
 };
@@ -55,7 +55,7 @@ const loadConfigRemote = function(aRemoteData) {
 	let xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState == 4)
-			setConfig(JSON.parse(this.response));
+			setConfig(JSON.parse(response));
 	};
 	xhttp.open("get", aRemoteData.url, false);
 	return xhttp.send();
@@ -106,7 +106,7 @@ const getAppenders = function(theAppenders) {
 	let result = new Array();
 	for (let i = 0; i < theAppenders.length; i++) {
 		let appenderString = theAppenders[i];
-		let appender = this.appenders[appenderString];
+		let appender = appenders[appenderString];
 		if (!appender) {
 			appender = (new Function("return appenderString;")).call()
 			if (appender) {
@@ -123,7 +123,7 @@ const getAppenders = function(theAppenders) {
 const LoggerFactory = {
 	newLogger : function(aLoggerName) {
 		var logger = LoggerRegistry.getLogger(aLoggerName);
-		if (logger) {
+		if (!logger) {
 			var config = findConfig(aLoggerName);
 			var logLevel = LogLevel.getLogLevel(config.logLevel);
 			var appenders = getAppenders(config.appenders);

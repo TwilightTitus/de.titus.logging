@@ -13,7 +13,7 @@ const LoggerRegistry = {
 		if(typeof aName !== "string")
 			return;
 		
-		return LOGGER[aLoggerName];
+		return LOGGER[aName];
 	},	
 	getAllLogger : function(){
 		return LOGGER;
