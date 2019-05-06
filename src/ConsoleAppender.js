@@ -36,6 +36,6 @@ const ConsoleAppender = {
 			
 			appender.apply(console, log);		
 		}, 1);
-	};
+	}
 };
 export default ConsoleAppender;

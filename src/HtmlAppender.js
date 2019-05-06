@@ -27,7 +27,7 @@ const HtmlAppender = {
 			entry.textContent = message;
 			container.appendChild(entry);
 		}, 1);
-	};
+	}
 };
 
 export default HtmlAppender;

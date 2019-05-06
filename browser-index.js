@@ -1,12 +1,12 @@
-import utils from "./utils";
-import ConsoleAppender from "./ConsoleAppender";
-import HtmlAppender from "./HtmlAppender";
-import InteligentBrowserAppender from "./InteligentBrowserAppender";
-import MemoryAppender from "./MemoryAppender";
-import LogLevel from "./LogLevel";
-import Logger from "./Logger";
-import LoggerFactory from "./LoggerFactory";
-import LoggerRegistry from "./LoggerRegistry";
+import utils from "./src/utils";
+import ConsoleAppender from "./src/ConsoleAppender";
+import HtmlAppender from "./src/HtmlAppender";
+import InteligentBrowserAppender from "./src/InteligentBrowserAppender";
+import MemoryAppender from "./src/MemoryAppender";
+import LogLevel from "./src/LogLevel";
+import Logger from "./src/Logger";
+import LoggerFactory from "./src/LoggerFactory";
+import LoggerRegistry from "./src/LoggerRegistry";
 
 
 (function(global){

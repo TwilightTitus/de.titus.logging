@@ -1,5 +1,5 @@
 import HtmlAppender from "./HtmlAppender";
-import ConsoleAppender from "./ConsoleHtmlAppender";
+import ConsoleAppender from "./ConsoleAppender";
 import MemoryAppender from "./MemoryAppender";
 
 let appender;
@@ -16,9 +16,9 @@ const getAppender = function() {
 	return this.appender;
 };
 const InteligentBrowserAppender = {
-	InteligentBrowserAppender.prototype.logMessage = function(aMessage, anException, aLoggerName, aDate, aLogLevel) {
+	logMessage : function(aMessage, anException, aLoggerName, aDate, aLogLevel) {
 		getAppender().logMessage(aMessage, anException, aLoggerName, aDate, aLogLevel);
-	};
+	}
 };
 
 export default InteligentBrowserAppender;
