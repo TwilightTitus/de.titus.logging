@@ -38,8 +38,7 @@
     "url": "https://github.com/TwilightTitus/de.titus.logging/issues"
   },
   "homepage": "https://github.com/TwilightTitus/de.titus.logging#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "directories": {
     "src": "src",
     "test": "test"
