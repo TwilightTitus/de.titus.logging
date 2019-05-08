@@ -10,7 +10,7 @@ import LoggerRegistry from "./src/LoggerRegistry";
 
 
 (function(global){
-	global.de = de || {};
+	global.de = global.de || {};
 	global.de.titus = global.de.titus || {};
 	global.de.titus.logging = global.de.titus.logging || {
 		VERSION : "${version}",
@@ -24,6 +24,5 @@ import LoggerRegistry from "./src/LoggerRegistry";
 		Logger : Logger,
 		LoggerFactory : LoggerFactory,
 		LoggerRegistry : LoggerRegistry
-	};
-	
+	};	
 })(window || global || {});

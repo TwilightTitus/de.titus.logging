@@ -9,10 +9,10 @@ LogLevel.prototype.isIncluded = function(aLogLevel) {
 
 LogLevel.getLogLevel = function(aLogLevelName) {
 	if (aLogLevelName == undefined)
-		return de.titus.logging.LogLevel.NOLOG;
+		return LogLevel.NOLOG;
 
 	var levelName = aLogLevelName.toUpperCase();
-	return de.titus.logging.LogLevel[levelName];
+	return LogLevel[levelName];
 };
 
 LogLevel.NOLOG = new LogLevel(0, "NOLOG");

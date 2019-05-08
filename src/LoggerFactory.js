@@ -82,7 +82,7 @@ const findConfig = function(aLoggerName) {
 		"appenders" : []
 	};
 	let actualConfig = undefined;
-	let configs = getConfig();
+	let configs = getConfig() || [];
 	for (let i = 0; i < configs.length; i++) {
 		let config = configs[i];
 		if (isConfigActiv(aLoggerName, config, actualConfig))
@@ -108,7 +108,7 @@ const getAppenders = function(theAppenders) {
 		let appenderString = theAppenders[i];
 		let appender = appenders[appenderString];
 		if (!appender) {
-			appender = (new Function("return appenderString;")).call()
+			appender = (new Function("return " + appenderString +";")).call()
 			if (appender) {
 				appenders[appenderString] = appender;
 			}
@@ -122,11 +122,11 @@ const getAppenders = function(theAppenders) {
 
 const LoggerFactory = {
 	newLogger : function(aLoggerName) {
-		var logger = LoggerRegistry.getLogger(aLoggerName);
+		let logger = LoggerRegistry.getLogger(aLoggerName);
 		if (!logger) {
-			var config = findConfig(aLoggerName);
-			var logLevel = LogLevel.getLogLevel(config.logLevel);
-			var appenders = getAppenders(config.appenders);
+			let config = findConfig(aLoggerName);
+			let logLevel = LogLevel.getLogLevel(config.logLevel);
+			let appenders = getAppenders(config.appenders);
 	
 			logger = new Logger(aLoggerName, logLevel, appenders);
 			LoggerRegistry.addLogger(logger);

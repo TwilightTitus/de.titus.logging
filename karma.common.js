@@ -10,7 +10,7 @@ module.exports = {
 	frameworks : [ 'jasmine' ],
 
 	// list of files / patterns to load in the browser
-	files : [ 'test/*Test.js', 'test/*/*Test.js' ],
+	files : [ 'test/*Test.js', 'test/**/*Test.js', 'test/sites/**/*.html'],
 
 	// list of files / patterns to exclude
 	exclude : [],
@@ -19,7 +19,8 @@ module.exports = {
 	// available preprocessors:
 	// https://npmjs.org/browse/keyword/karma-preprocessor
 	preprocessors : {
-		'test/**/*Test.js' : [ 'webpack', 'sourcemap' ]
+		'test/**/*Test.js' : [ 'webpack', 'sourcemap' ],
+		'test/sites/**/*.html': ['html2js']
 	},
 
 	webpack : {
@@ -43,6 +44,9 @@ module.exports = {
 	autoWatch : true,
 	phantomjsLauncher : {
 		exitOnResourceError : true
+	},
+	client : {
+		clearContext : false
 	},
 
 	// Continuous Integration mode
