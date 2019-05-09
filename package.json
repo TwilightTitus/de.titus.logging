@@ -14,7 +14,7 @@
   "author": "Frank Schüler",
   "license": "MIT",
   "devDependencies": {
-    "dom-api-extension": "^1.0.2-beta4",
+    "dom-api-extension": "^1.0.2-beta5",
     "jasmine": "^3.4.0",
     "jasmine-core": "^3.4.0",
     "karma": "^4.1.0",

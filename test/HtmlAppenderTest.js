@@ -1,7 +1,7 @@
 import "../node_modules/dom-api-extension";
 import "../browser-index";
 import logging from "./data/logging.json";
-
+ 
 
 describe("HtmlAppenderTest", function() {	
 	beforeAll(function(){

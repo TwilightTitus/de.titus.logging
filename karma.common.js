@@ -10,8 +10,9 @@ module.exports = {
 	frameworks : [ 'jasmine' ],
 
 	// list of files / patterns to load in the browser
-	files : [ 'test/*Test.js', 'test/**/*Test.js', 'test/sites/**/*.html'],
-
+	//files : [ 'test/*Test.js', 'test/**/*Test.js', 'test/sites/**/*.html'],
+	files : [ 'test/**/*Test.js', 'test/sites/**/*.html'],
+	
 	// list of files / patterns to exclude
 	exclude : [],
 
