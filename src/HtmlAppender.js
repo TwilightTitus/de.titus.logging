@@ -7,16 +7,12 @@ const HtmlAppender = {
 	},
 	logMessage : function(aMessage, anException, aLoggerName, aDate, aLogLevel) {
 		let container = document.querySelector(CONTAINER);
-		if (container)
+		if (!container)
 			return;
 		
 		let entry = document.createElement("div");
 		entry.setAttribute("class", "log-entry " + aLogLevel.title);
-		let message = "";
-		if (aDate)
-			logEntry += logEntry = DateUtils.formatedDateString(aDate) + " ";
-		
-		message += "***" + aLogLevel.title + "*** " + aLoggerName + "";
+		let message =  DateUtils.dateAsString(aDate || new Date()) + " ***" + aLogLevel.title + "*** " + aLoggerName + "";
 		
 		if (aMessage)
 			message += " -> " + aMessage;
@@ -24,7 +20,7 @@ const HtmlAppender = {
 			message += ": " + anException;
 		
 		entry.textContent = message;
-		container.appendChild(entry);
+		return container.appendChild(entry);
 	}
 };
 

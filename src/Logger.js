@@ -3,7 +3,7 @@ import LogLevel from "./LogLevel";
 const Logger = function(aName, aLogLevel, aLogAppenders) {
 	this.name = aName;
 	this.logLevel = aLogLevel;
-	this.logAppenders = aLogAppenders;
+	this.appenders = aLogAppenders || [];
 };
 
 Logger.prototype.isErrorEnabled = function() {
@@ -46,14 +46,19 @@ Logger.prototype.log = function(aMessage, anException, aLogLevel) {
 	if(!this.logLevel.isIncluded(aLogLevel))
 		return Promise.resolve();
 	
-	if (this.logAppenders || this.logAppenders.length === 0)
+	if (!this.appenders.length === 0)
 		return Promise.resolve();
 
 	return new Promise((function(resolve){
 		setTimeout((function(){
-			for (let i = 0; i < this.logAppenders.length; i++)
-				this.logAppenders[i].logMessage(aMessage, anException, this.name,new Date(), aLogLevel);
-			resolve();
+			let results = [];
+			for (let i = 0; i < this.appenders.length; i++){
+				let result = this.appenders[i].logMessage(aMessage, anException, this.name,new Date(), aLogLevel);
+				if(result)
+					results.push(result);
+			}
+			
+			Promise.all(results).then(resolve);			
 		}).bind(this), 100);
 	}).bind(this));
 };

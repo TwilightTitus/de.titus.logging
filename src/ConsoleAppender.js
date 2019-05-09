@@ -7,7 +7,7 @@ const ConsoleAppender = {
 			return;
 		let log = [];
 		if (aDate)
-			log.push(DateUtils.formatedDateString(aDate), " ");
+			log.push(DateUtils.dateAsString(aDate), " ");
 		
 		log.push("***", aLogLevel.title, "*** ", aLoggerName);
 		

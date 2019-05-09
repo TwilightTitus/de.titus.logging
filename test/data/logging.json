@@ -1,0 +1,8 @@
+{"configs":[
+	{"filter": "test.LoggerFactoryTest", "logLevel": "TRACE", "appenders":["de.titus.logging.MemoryAppender"]},
+	{"filter": "test.LoggerTest", "logLevel": "TRACE", "appenders":["de.titus.logging.MemoryAppender"]},
+	{"filter": "test.MemoryAppenderTest", "logLevel": "TRACE", "appenders":["de.titus.logging.MemoryAppender"]},
+	{"filter": "test.HtmlAppenderTest", "logLevel": "TRACE", "appenders":["de.titus.logging.HtmlAppender"]},
+	{"filter": "test.ConsoleAppenderTest", "logLevel": "TRACE", "appenders":["de.titus.logging.ConsoleAppender"]},
+	{"filter": "test.InteligentBrowserAppenderTest", "logLevel": "TRACE", "appenders":["de.titus.logging.InteligentBrowserAppender"]}
+]}

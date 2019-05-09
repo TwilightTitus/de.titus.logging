@@ -66,7 +66,7 @@ const updateLogger = function() {
 	for ( let name in loggers) {
 		var logger = loggers[name];
 
-		let config = findConfig(loggerName);
+		let config = findConfig(name);
 		let logLevel = LogLevel.getLogLevel(config.logLevel);
 		let appenders = getAppenders(config.appenders);
 
