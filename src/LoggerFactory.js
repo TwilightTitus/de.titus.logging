@@ -40,15 +40,15 @@ const doLoadLazy = function() {
 };
 
 const loadConfig = function(aConfig) {
-	if (aConfig)
-		updateConfigs();
-	else {
-		if (aConfig.remote)
-			loadConfigRemote(aConfig.remote);
-		else if (aConfig.data) {
-			setConfig(aConfig.data.configs);
-		}
+	if (aConfig){
+        if (aConfig.remote)
+            loadConfigRemote(aConfig.remote);
+        else if (aConfig.data) {
+            setConfig(aConfig.data.configs);
+        }
 	}
+	else 
+        updateConfigs();
 };
 
 const loadConfigRemote = function(aRemoteData) {
